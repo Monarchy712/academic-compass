@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Brain, Mail, ArrowRight, Eye, EyeOff, Building, GraduationCap, BookOpen } from "lucide-react";
+import { Mail, ArrowRight, Eye, EyeOff, GraduationCap, BookOpen, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
-import { institutions, departments, semesters } from "@/lib/data";
+import { departments, semesters } from "@/lib/data";
 
 export default function SignupPage() {
   const [step, setStep] = useState(1);
@@ -15,7 +15,6 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [institution, setInstitution] = useState("");
   const [department, setDepartment] = useState("");
   const [semester, setSemester] = useState("");
 
@@ -25,29 +24,36 @@ export default function SignupPage() {
       setStep(step + 1);
     } else {
       // Handle signup
-      console.log("Signup:", { email, password, institution, department, semester });
+      console.log("Signup:", { email, password, department, semester });
     }
   };
 
   return (
-    <div className="min-h-screen gradient-hero">
+    <div className="min-h-screen bg-background">
       <Header />
       
       <main className="flex items-center justify-center min-h-screen pt-16 px-4 py-8">
         <Card variant="elevated" className="w-full max-w-md animate-scale-in">
           <CardHeader className="text-center">
-            <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center mx-auto mb-4 shadow-medium">
-              <Brain className="w-8 h-8 text-primary-foreground" />
+            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4 shadow-medium">
+              <span className="text-primary-foreground font-display font-bold text-xl">S1</span>
             </div>
-            <CardTitle className="text-2xl">Create Account</CardTitle>
+            <CardTitle className="text-2xl">Join Sol-1</CardTitle>
             <CardDescription>
-              {step === 1 ? "Sign up with your college email" : "Select your academic details"}
+              {step === 1 ? (
+                <span className="flex items-center justify-center gap-2">
+                  <Shield className="w-4 h-4 text-accent" />
+                  IIIT Nagpur students only
+                </span>
+              ) : (
+                "Select your academic details"
+              )}
             </CardDescription>
             
             {/* Progress indicator */}
             <div className="flex items-center justify-center gap-2 mt-4">
-              <div className={`w-8 h-1 rounded-full ${step >= 1 ? "gradient-primary" : "bg-muted"}`} />
-              <div className={`w-8 h-1 rounded-full ${step >= 2 ? "gradient-primary" : "bg-muted"}`} />
+              <div className={`w-8 h-1 rounded-full ${step >= 1 ? "bg-primary" : "bg-muted"}`} />
+              <div className={`w-8 h-1 rounded-full ${step >= 2 ? "bg-primary" : "bg-muted"}`} />
             </div>
           </CardHeader>
           <CardContent>
@@ -55,13 +61,13 @@ export default function SignupPage() {
               {step === 1 ? (
                 <>
                   <div className="space-y-2">
-                    <Label htmlFor="email">College Email</Label>
+                    <Label htmlFor="email">IIITN Email</Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <Input
                         id="email"
                         type="email"
-                        placeholder="you@university.edu"
+                        placeholder="yourname@iiitn.ac.in"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="pl-10"
@@ -69,7 +75,7 @@ export default function SignupPage() {
                       />
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      Use your official college email for verification
+                      Only @iiitn.ac.in emails are accepted
                     </p>
                   </div>
 
@@ -109,23 +115,6 @@ export default function SignupPage() {
                 </>
               ) : (
                 <>
-                  <div className="space-y-2">
-                    <Label>Institution</Label>
-                    <Select value={institution} onValueChange={setInstitution}>
-                      <SelectTrigger>
-                        <Building className="w-4 h-4 mr-2 text-muted-foreground" />
-                        <SelectValue placeholder="Select your institution" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {institutions.map((inst) => (
-                          <SelectItem key={inst.id} value={inst.id}>
-                            {inst.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
                   <div className="space-y-2">
                     <Label>Department</Label>
                     <Select value={department} onValueChange={setDepartment}>
@@ -168,7 +157,7 @@ export default function SignupPage() {
                     Back
                   </Button>
                 )}
-                <Button variant="hero" className="flex-1" type="submit">
+                <Button variant="default" className="flex-1" type="submit">
                   {step === 1 ? "Continue" : "Create Account"}
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>

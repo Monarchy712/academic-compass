@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { 
   BookOpen, 
   Clock, 
@@ -19,6 +18,7 @@ import { Header } from "@/components/layout/Header";
 import { QuestionCard } from "@/components/questions/QuestionCard";
 import { subjects, mockQuestions } from "@/lib/data";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Dashboard() {
   const [selectedSubjects] = useState(["ds", "algo", "os"]);
@@ -27,7 +27,7 @@ export default function Dashboard() {
     questionsAsked: 12,
     questionsAnswered: 28,
     contributionScore: 450,
-    rank: 127,
+    rank: 27,
     verifiedAnswers: 15,
     streak: 7,
   };
@@ -43,10 +43,10 @@ export default function Dashboard() {
           {/* Welcome Section */}
           <div className="mb-8">
             <h1 className="font-display text-3xl font-bold text-foreground mb-2">
-              Welcome back, Student! 👋
+              Welcome back!
             </h1>
             <p className="text-muted-foreground">
-              You're on a {userStats.streak}-day learning streak. Keep it up!
+              You're on a {userStats.streak}-day contribution streak. Keep it up!
             </p>
           </div>
 
@@ -79,7 +79,7 @@ export default function Dashboard() {
                     <p className="font-display text-2xl font-bold text-foreground">
                       #{userStats.rank}
                     </p>
-                    <p className="text-xs text-muted-foreground">Rank</p>
+                    <p className="text-xs text-muted-foreground">IIITN Rank</p>
                   </CardContent>
                 </Card>
                 <Card variant="interactive">
@@ -134,7 +134,7 @@ export default function Dashboard() {
               <Card>
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle>Recent Activity</CardTitle>
+                    <CardTitle>Recent IIITN Activity</CardTitle>
                     <Button variant="accent" size="sm" asChild>
                       <Link to="/ask">
                         <Plus className="w-4 h-4 mr-1" />
@@ -143,7 +143,7 @@ export default function Dashboard() {
                     </Button>
                   </div>
                   <CardDescription>
-                    Questions from your enrolled subjects
+                    Latest questions from your enrolled subjects
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -159,14 +159,14 @@ export default function Dashboard() {
               {/* Profile Card */}
               <Card variant="glow">
                 <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 rounded-full gradient-primary mx-auto mb-4 flex items-center justify-center text-primary-foreground text-2xl font-bold shadow-medium">
+                  <div className="w-20 h-20 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center text-primary-foreground text-2xl font-bold shadow-medium">
                     S
                   </div>
                   <h2 className="font-display text-xl font-bold text-foreground mb-1">
-                    Student Name
+                    IIITN Student
                   </h2>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Computer Science • Semester 5
+                    CSE • Semester 5 • Batch 2022
                   </p>
                   <div className="flex justify-center gap-2 mb-4">
                     <Badge variant="contributor">Contributor</Badge>
@@ -224,13 +224,13 @@ export default function Dashboard() {
                   <Button variant="outline" className="w-full justify-start" asChild>
                     <Link to="/explore">
                       <BookOpen className="w-4 h-4 mr-2" />
-                      Browse Questions
+                      Browse Knowledge Base
                     </Link>
                   </Button>
                   <Button variant="outline" className="w-full justify-start" asChild>
                     <Link to="/leaderboard">
                       <TrendingUp className="w-4 h-4 mr-2" />
-                      View Leaderboard
+                      View IIITN Leaderboard
                     </Link>
                   </Button>
                 </CardContent>

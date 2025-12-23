@@ -4,31 +4,31 @@ const steps = [
   {
     icon: Search,
     title: "Search First",
-    description: "AI scans our knowledge base for existing verified answers to your question",
+    description: "AI scans our IIITN knowledge base for existing verified answers to your question",
     color: "accent",
   },
   {
     icon: MessageSquare,
     title: "Ask or Contribute",
-    description: "If no answer exists, submit your question or provide an answer to help others",
+    description: "If no answer exists, submit your question or provide an answer to help fellow students",
     color: "primary",
   },
   {
     icon: CheckCircle,
-    title: "Community Review",
-    description: "Peers vote, suggest edits, and verify accuracy through collaborative review",
+    title: "Peer Review",
+    description: "IIITN students vote, suggest edits, and verify accuracy through collaborative review",
     color: "success",
   },
   {
     icon: GitMerge,
     title: "Maintainer Approval",
-    description: "Subject experts review and merge verified content into the knowledge base",
+    description: "Subject maintainers review and merge verified content into the knowledge base",
     color: "accent",
   },
   {
     icon: TrendingUp,
     title: "Earn Recognition",
-    description: "Your contributions are scored and displayed on your public profile",
+    description: "Your contributions are scored and displayed on the campus leaderboard",
     color: "primary",
   },
 ];
@@ -40,10 +40,10 @@ export function HowItWorksSection() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            How It Works
+            How Sol-1 Works
           </h2>
           <p className="text-lg text-muted-foreground">
-            A transparent, open-source workflow that ensures quality and rewards contribution.
+            A transparent, student-driven workflow that ensures quality and rewards contribution.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export function HowItWorksSection() {
               <div className="relative z-10 flex-shrink-0">
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-medium ${
                   step.color === "accent" ? "bg-accent/10" :
-                  step.color === "primary" ? "gradient-primary" :
+                  step.color === "primary" ? "bg-primary" :
                   "bg-success/10"
                 }`}>
                   <step.icon className={`w-7 h-7 ${

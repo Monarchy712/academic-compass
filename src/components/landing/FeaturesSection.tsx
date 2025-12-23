@@ -3,15 +3,15 @@ import { features } from "@/lib/data";
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Built for Academic Excellence
+            Built for IIIT Nagpur Academics
           </h2>
           <p className="text-lg text-muted-foreground">
-            Everything you need to learn, contribute, and succeed in your academic journey.
+            A private, student-verified knowledge system aligned with IIITN syllabus, rules, and campus workflows.
           </p>
         </div>
 

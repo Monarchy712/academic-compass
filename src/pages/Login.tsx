@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Brain, Mail, ArrowRight, Eye, EyeOff } from "lucide-react";
+import { Mail, ArrowRight, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -19,30 +19,30 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen gradient-hero">
+    <div className="min-h-screen bg-background">
       <Header />
       
       <main className="flex items-center justify-center min-h-screen pt-16 px-4">
         <Card variant="elevated" className="w-full max-w-md animate-scale-in">
           <CardHeader className="text-center">
-            <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center mx-auto mb-4 shadow-medium">
-              <Brain className="w-8 h-8 text-primary-foreground" />
+            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4 shadow-medium">
+              <span className="text-primary-foreground font-display font-bold text-xl">S1</span>
             </div>
             <CardTitle className="text-2xl">Welcome Back</CardTitle>
             <CardDescription>
-              Sign in with your college email to continue
+              Sign in with your IIIT Nagpur email
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email">College Email</Label>
+                <Label htmlFor="email">IIITN Email</Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="email"
                     type="email"
-                    placeholder="you@university.edu"
+                    placeholder="yourname@iiitn.ac.in"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="pl-10"
@@ -78,7 +78,7 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <Button variant="hero" className="w-full" type="submit">
+              <Button variant="default" className="w-full" type="submit">
                 Sign In
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
