@@ -6,17 +6,17 @@
 
 @layer base {
   :root {
-    /* Deep Indigo / Midnight Blue Primary */
-    --primary: 234 85% 25%;
+    /* Deep Indigo / Navy Primary */
+    --primary: 230 60% 22%;
     --primary-foreground: 210 40% 98%;
     
     /* Soft Slate / Cool Gray Secondary */
     --secondary: 215 20% 65%;
     --secondary-foreground: 234 85% 15%;
     
-    /* Electric Cyan Accent */
-    --accent: 185 85% 45%;
-    --accent-foreground: 234 85% 10%;
+    /* Cyan/Teal Accent */
+    --accent: 180 70% 40%;
+    --accent-foreground: 210 40% 98%;
     
     /* Off-white Background */
     --background: 220 20% 97%;

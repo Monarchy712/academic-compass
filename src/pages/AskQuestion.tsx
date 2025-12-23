@@ -25,16 +25,16 @@ export default function AskQuestionPage() {
         found: true,
         results: [
           {
-            title: "Understanding Binary Search Trees",
+            title: "CS201 Midsem Grading Pattern - IIIT Nagpur",
             relevance: 95,
             verified: true,
-            excerpt: "A binary search tree (BST) is a data structure where each node has at most two children...",
+            excerpt: "The midsem exam for CS201 Data Structures typically follows a 30-mark pattern with 2 coding questions and 3 theory questions...",
           },
           {
-            title: "Tree Traversal Methods Explained",
-            relevance: 78,
+            title: "Previous Year CS201 Question Papers",
+            relevance: 82,
             verified: true,
-            excerpt: "There are three main ways to traverse a binary tree: inorder, preorder, and postorder...",
+            excerpt: "Collection of PYQs from 2020-2024 for Data Structures including solutions verified by senior students...",
           },
         ],
       });
@@ -50,14 +50,14 @@ export default function AskQuestionPage() {
           <div className="max-w-3xl mx-auto">
             {/* Page Header */}
             <div className="text-center mb-12">
-              <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center mx-auto mb-6 shadow-medium">
+              <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-6 shadow-medium">
                 <Lightbulb className="w-8 h-8 text-primary-foreground" />
               </div>
               <h1 className="font-display text-4xl font-bold text-foreground mb-4">
                 Ask a Question
               </h1>
               <p className="text-lg text-muted-foreground">
-                Our AI will first search for existing answers before creating a new question
+                Our AI searches the IIITN knowledge base for existing verified answers first
               </p>
             </div>
 
@@ -66,10 +66,10 @@ export default function AskQuestionPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Search className="w-5 h-5 text-accent" />
-                  What's your question?
+                  What do you want to know?
                 </CardTitle>
                 <CardDescription>
-                  Be specific and include relevant context for better results
+                  Be specific - include course codes, semester info, or campus context
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -77,7 +77,7 @@ export default function AskQuestionPage() {
                   <Select value={subject} onValueChange={setSubject}>
                     <SelectTrigger>
                       <BookOpen className="w-4 h-4 mr-2 text-muted-foreground" />
-                      <SelectValue placeholder="Select a subject" />
+                      <SelectValue placeholder="Select a subject or category" />
                     </SelectTrigger>
                     <SelectContent>
                       {subjects.map((sub) => (
@@ -85,12 +85,15 @@ export default function AskQuestionPage() {
                           {sub.name} ({sub.code})
                         </SelectItem>
                       ))}
+                      <SelectItem value="campus">Campus Life & Rules</SelectItem>
+                      <SelectItem value="hostel">Hostel & Accommodation</SelectItem>
+                      <SelectItem value="placements">Placements & Internships</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <Textarea
-                  placeholder="Example: How do I implement a binary search tree in Python? I understand the concept but I'm confused about the insertion method..."
+                  placeholder="Example: What's the grading scheme for CS201 midsems? How many marks are allocated for theory vs practical?"
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   className="min-h-[150px] resize-none"
@@ -105,7 +108,7 @@ export default function AskQuestionPage() {
                   {isSearching ? (
                     <>
                       <Sparkles className="w-4 h-4 mr-2 animate-pulse" />
-                      Searching Knowledge Base...
+                      Searching IIITN Knowledge Base...
                     </>
                   ) : (
                     <>
@@ -125,7 +128,7 @@ export default function AskQuestionPage() {
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2 text-accent">
                         <Sparkles className="w-5 h-5" />
-                        We found related answers!
+                        Found verified answers!
                       </CardTitle>
                       <CardDescription>
                         Review these existing solutions before submitting a new question
@@ -170,7 +173,7 @@ export default function AskQuestionPage() {
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <Button variant="hero">
+                      <Button variant="default">
                         Submit Question
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -184,24 +187,24 @@ export default function AskQuestionPage() {
             <Card variant="glass">
               <CardContent className="p-6">
                 <h3 className="font-display font-semibold text-foreground mb-4">
-                  Tips for asking great questions
+                  Tips for IIITN-specific questions
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="text-accent">•</span>
-                    Be specific about what you're trying to understand
+                    Include course codes (CS201, EC301) for academic questions
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent">•</span>
-                    Include relevant context (what you've already tried, course material, etc.)
+                    Mention the semester or batch year for context
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent">•</span>
-                    Use proper terminology from your syllabus
+                    For hostel/campus queries, specify building or block if relevant
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent">•</span>
-                    Check if a similar question already exists
+                    Check if a similar question already exists in the knowledge base
                   </li>
                 </ul>
               </CardContent>

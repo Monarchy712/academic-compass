@@ -24,10 +24,10 @@ export default function ExplorePage() {
           {/* Page Header */}
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h1 className="font-display text-4xl font-bold text-foreground mb-4">
-              Explore Questions
+              IIITN Knowledge Base
             </h1>
             <p className="text-lg text-muted-foreground">
-              Browse through our verified knowledge base or search for specific topics
+              Browse verified answers on syllabus, PYQs, hostel rules, and campus life
             </p>
           </div>
 
@@ -38,7 +38,7 @@ export default function ExplorePage() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Search questions, topics, or concepts..."
+                placeholder="Search CS201 midsems, hostel wifi, placement prep..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="h-12 pl-12 pr-4"
@@ -63,6 +63,8 @@ export default function ExplorePage() {
                       {subject.name}
                     </SelectItem>
                   ))}
+                  <SelectItem value="campus">Campus Life</SelectItem>
+                  <SelectItem value="hostel">Hostel</SelectItem>
                 </SelectContent>
               </Select>
 
@@ -92,7 +94,7 @@ export default function ExplorePage() {
             <div className="flex flex-wrap gap-2">
               {selectedSubject !== "all" && (
                 <Badge variant="contributor" className="cursor-pointer" onClick={() => setSelectedSubject("all")}>
-                  {subjects.find(s => s.id === selectedSubject)?.name} ×
+                  {subjects.find(s => s.id === selectedSubject)?.name || selectedSubject} ×
                 </Badge>
               )}
               {selectedDifficulty !== "all" && (
