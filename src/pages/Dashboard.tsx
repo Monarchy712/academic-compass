@@ -8,7 +8,8 @@ import {
   Settings,
   LogOut,
   ChevronRight,
-  Plus
+  Plus,
+  Users
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -231,6 +232,12 @@ export default function Dashboard() {
                     <Link to="/leaderboard">
                       <TrendingUp className="w-4 h-4 mr-2" />
                       View IIITN Leaderboard
+                    </Link>
+                  </Button>
+                  <Button variant="outline" className="w-full justify-start" asChild>
+                    <Link to="/directory">
+                      <Users className="w-4 h-4 mr-2" />
+                      College Directory
                     </Link>
                   </Button>
                 </CardContent>
